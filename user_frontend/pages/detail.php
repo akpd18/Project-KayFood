@@ -1,6 +1,6 @@
 <?php
 // 1. Kết nối Database
-require_once '../core/db.php';
+require_once '../../core/db.php';
 
 // 2. Lấy ID món ăn từ URL
 $id = isset($_GET['id']) ? $_GET['id'] : 0;
@@ -17,7 +17,7 @@ if (!$dish) {
 }
 
 // 4. Khai báo CSS (Trình duyệt đọc từ gốc)
-$css_file = 'assets/css/index.css';
+$css_file = 'user_frontend\assets\css\index.csss';
 
 // 5. Gọi Header
 include_once '../components/header.php';
@@ -26,7 +26,7 @@ include_once '../components/header.php';
 <main class="container">
     <div class="detail-container">
         <div class="detail-image">
-            <img src="assets/images/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>">
+            <img src="/user_frontend/assets/images/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>">
         </div>
 
         <div class="detail-info">

@@ -1,13 +1,13 @@
 <?php
 // 1. Kết nối Database
-require_once '../core/db.php';
+require_once '../../core/db.php';
 
 // 2. Lấy dữ liệu món ăn
 $stmt = $pdo->query("SELECT * FROM dishes");
 $dishes = $stmt->fetchAll();
 
 // 3. Khai báo biến CSS riêng để file header.php nhận diện
-$css_file = 'assets/css/index.css';
+$css_file = 'user_frontend/assets/css/index.css';
 
 // 4. Gọi Header dùng chung
 include_once '../components/header.php'; 
@@ -15,7 +15,7 @@ include_once '../components/header.php';
 
 <section class="hero-banner">
     <div class="banner-image">
-        <img src="assets/images/banner.png" alt="Món Ăn Truyền Thống">
+        <img src="/Project-Kayfood/assets/images/banner.png" alt="Món Ăn Truyền Thống">
     </div>
 </section>
 
@@ -30,7 +30,7 @@ include_once '../components/header.php';
             <?php foreach ($dishes as $dish): ?>
             <article class="food-item">
                 <div class="image-wrapper">
-                    <img src="assets/images/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>">
+                    <img src="/Project-Kayfood/assets/images/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>">
                 </div>
                 <div class="info">
                     <h3><?php echo $dish['name']; ?></h3>

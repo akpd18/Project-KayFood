@@ -1,0 +1,480 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* LOGIN PAGE STYLING*/
+body.login-page {
+    background-color: #2d1e14; 
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+.login-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.login-card h1 {
+    color: #e67e22; 
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.login-card h1 span {
+    color: #2d1e14;
+}
+
+.login-card p {
+    color: #2d1e14;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d1e14;
+    margin-bottom: 8px;
+}
+
+.form-group i {
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    color: #e67e22;
+    font-size: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 2px solid #f1f2f6;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s;
+    background: #f9f9f9;
+}
+
+.form-group input:focus {
+    border-color: #e67e22;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.1);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: #e67e22;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+}
+
+.btn-login:hover {
+    background: #d35400;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(230, 126, 34, 0.4);
+}
+
+/* ADMIN PAGE STYLING */
+body.admin-page {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa;
+}
+.admin-wrapper {
+    display: flex;
+}
+/* Sidebar Style */
+.admin-sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #2d1e14;
+    color: #fff;
+    position: fixed;
+    padding: 20px;
+}
+
+.sidebar-logo {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #e67e22;
+}
+
+.sidebar-logo span { color: #fff; }
+
+.sidebar-menu {
+    list-style: none;
+}
+
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+
+.sidebar-menu li a {
+    color: #ebebeb;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar-menu li a i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.sidebar-menu li a:hover, 
+.sidebar-menu li.active a {
+    background: #e67e22;
+    color: #fff;
+}
+
+.sidebar-menu li.logout {
+    margin-top: 50px;
+    border-top: 1px solid #333;
+}
+
+/* Content Area */
+.admin-content {
+    flex: 1;
+    margin-left: 250px; /* Bằng chiều rộng sidebar */
+
+}
+
+.content-body {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Top Navigation Bar Style */
+.top-navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Luôn nằm trên cùng khi cuộn */
+    background: #ffffff;
+    height: 70px; /* Chiều cao cố định */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ sang trọng */
+    border-bottom: 1px solid #edf2f7;
+
+}
+
+/* Lời chào Welcome */
+.welcome-text {
+    font-size: 20px;
+    color: #4a5568; 
+    font-weight: 700;
+}
+
+.welcome-text span {
+    color: #e67e22;
+    font-weight: 700;
+}
+
+/* Khu vực nút bên phải */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Nút đăng xuất */
+.btn-logout {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff1f0;  
+    color: #ff4d4f;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #ffccc7;
+    transition: all 0.3s ease;
+}
+
+.btn-logout i {
+    font-size: 18px;
+}
+
+.btn-logout:hover {
+    background-color: #ff4d4f;
+    color: #ffffff;
+    border-color: #ff4d4f;
+    box-shadow: 0 4px 12px rgba(255, 77, 79, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Đảm bảo phần content không bị dính sát navbar */
+.content-body {
+    padding: 0 30px 30px 30px;
+    animation: fadeIn 0.5s ease; /* Hiệu ứng hiện hình nhẹ */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- QUẢN LÝ MÓN ĂN (KF-DISHES) --- */
+.kayfood-admin-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+}
+
+/* --- HEADER SECTION --- */
+.table-header-section {
+    flex-shrink: 0;
+    background: #ffffff;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 10;
+}
+
+.table-header-section h3 { margin: 0; color: #332111; font-size: 22px; font-weight: 700; }
+
+.btn-add-new { 
+    background-color: #e67e22; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    display: flex; 
+    align-items: center; 
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.btn-add-new:hover { background-color: #d35400; transform: translateY(-2px); }
+
+/* --- TABLE SECTION --- */
+.table-responsive {
+    flex-grow: 1;
+    background: #fff;
+    overflow-y: auto;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.main-dish-table { width: 100%; border-collapse: collapse; }
+
+.main-dish-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #332111;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-align: left;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.main-dish-table tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.main-dish-table th:nth-child(2), 
+.main-dish-table td:nth-child(2) {
+    width: 140px; 
+    text-align: center;
+}
+
+/* Table Utilities */
+.col-id { width: 60px; text-align: center !important; }
+.col-img { width: 120px; text-align: center !important; }
+.col-name { width: 180px; }
+.col-desc { width: auto; text-align: center !important; } 
+.col-price { width: 130px; text-align: left !important; }
+.col-action { width: 110px; text-align: center !important; }
+
+.text-center-bold { 
+    text-align: center; 
+    font-weight: bold; 
+    color: #888; 
+}
+.dish-name-label { 
+    font-weight: 600; 
+    color: #333; 
+}
+.dish-thumb {
+    width: 100px;
+    height: 80px; 
+    object-fit: cover;
+    border-radius: 12px; 
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+.dish-thumb:hover {
+    transform: scale(1.05); 
+}
+.dish-description {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.4;
+    word-break: break-word;
+}
+.dish-price { 
+    color: #e67e22; 
+    font-weight: bold; 
+    font-size: 16px; 
+}
+
+/* Buttons */
+.action-btn { background: none; border: none; cursor: pointer; font-size: 20px; margin: 0 5px; transition: 0.2s; }
+.edit-btn { color: #3498db; }
+.edit-btn:hover { color: #2980b9; transform: scale(1.1); }
+.delete-btn { color: #e74c3c; }
+.delete-btn:hover { color: #c0392b; transform: scale(1.1); }
+
+/* --- SCROLLBAR --- */
+.table-responsive::-webkit-scrollbar { width: 6px; }
+.table-responsive::-webkit-scrollbar-track { background: #f9f9f9; }
+.table-responsive::-webkit-scrollbar-thumb { background: #ddd; border-radius: 10px; }
+.table-responsive::-webkit-scrollbar-thumb:hover { background: #e67e22; }
+
+/* --- MODERN MODAL --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+    justify-content: center; 
+    align-items: center;
+}
+
+.modal-content { 
+    background: #fff; 
+    padding: 0; 
+    border-radius: 16px; 
+    width: 450px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+    padding: 20px 25px;
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 { margin: 0; font-size: 18px; color: #332111; }
+
+.close-modal { font-size: 24px; cursor: pointer; color: #999; }
+
+/* Modern Form */
+.modern-form { padding: 25px; }
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #eee;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #e67e22;
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+}
+
+.file-hint { font-size: 12px; color: #999; margin-top: 5px; }
+
+/* Loại bỏ mũi tên cho Chrome, Safari, Edge, Opera */
+input#m_price::-webkit-outer-spin-button,
+input#m_price::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Loại bỏ mũi tên cho Firefox */
+input#m_price {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* Modal Footer */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn-secondary { background: #eee; color: #555; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.btn-primary { background: #e67e22; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; }

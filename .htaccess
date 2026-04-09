@@ -1,7 +1,13 @@
 RewriteEngine On
 
-# Nếu người dùng gõ home.php, nó sẽ âm thầm chạy file trong pages/home.php
-RewriteRule ^home\.php$ pages/home.php [L]
+# Nếu người dùng gõ home.php, nó sẽ âm thầm chạy file trong user_frontend/pages/home.php
+RewriteRule ^home\.php$ user_frontend/pages/home.php [L]
 
 # Tương tự cho trang chi tiết
-RewriteRule ^detail\.php$ pages/detail.php [L]
+RewriteRule ^detail\.php$ user_frontend/pages/detail.php [L]
+
+# Trang Login của admin
+RewriteRule ^login\.php$ admin_frontend/pages/login.php [L]
+RewriteRule ^logout$ admin_frontend/pages/logout.php [L]
+# Khi gõ admin.php, server sẽ âm thầm chạy file trong admin_frontend/pages/admin.php
+RewriteRule ^admin\.php$ admin_frontend/pages/admin.php [L]
