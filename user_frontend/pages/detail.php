@@ -16,8 +16,8 @@ if (!$dish) {
     exit;
 }
 
-// 4. Khai báo CSS (Trình duyệt đọc từ gốc)
-$css_file = 'user_frontend\assets\css\index.csss';
+// 4. Khai báo CSS 
+$css_file = '../assets/css/index.css';
 
 // 5. Gọi Header
 include_once '../components/header.php';
@@ -26,7 +26,7 @@ include_once '../components/header.php';
 <main class="container">
     <div class="detail-container">
         <div class="detail-image">
-            <img src="/user_frontend/assets/images/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>">
+            <img src="../assets/images/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>">
         </div>
 
         <div class="detail-info">

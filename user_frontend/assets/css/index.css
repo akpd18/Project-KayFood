@@ -1,5 +1,5 @@
 /* =========================================
-   PUBLIC STYLING (CHUNG)
+   PUBLIC STYLES (CHUNG)
    ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
@@ -28,6 +28,245 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+/* =========================================
+   LOGIN PAGE STYLES
+   ========================================= */
+
+.user-login-body {
+    margin: 0;
+    padding: 0;
+    background: #2D1E14;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-login-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.login-wrapper {
+    display: flex;
+    background: #ffffff;
+    border-radius: 24px; /* Bo góc mượt */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    overflow: hidden; /* QUAN TRỌNG: Cắt phần thừa của ảnh để không bị lòi ra ngoài */
+    min-height: 600px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Nửa bên trái: Hình ảnh */
+.login-visual {
+    flex: 1.2;
+    position: relative;
+    background: #000;
+    overflow: hidden; /* Bảo vệ thêm 1 lần nữa */
+}
+
+.login-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh lấp đầy khung mà không méo */
+    display: block; /* Loại bỏ khoảng trống thừa ở chân ảnh */
+    opacity: 0.9;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 2;
+    width: 90%; 
+    padding: 20px; 
+}
+
+.overlay-text h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+    text-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.7), /* Bóng đổ mềm */
+        0 1px 30px rgba(0, 0, 0, 0.9),  /* Tạo vùng tối rộng */
+        0 0 1px #000;                  /* Viền chữ sắc nét */
+}
+
+.overlay-text h2 span { 
+    color: #ff7a2d; 
+}
+
+.overlay-text p {
+    font-size: 1.2rem; 
+    opacity: 1; 
+    font-weight: 500; 
+    color: #f0f0f0; 
+    
+    /* Bóng đổ mềm cho slogan */
+    text-shadow: 
+        0 2px 5px rgba(0, 0, 0, 0.7),
+        0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+/* Nửa bên phải: Form đăng nhập */
+.login-box {
+    flex: 1;
+    padding: 50px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Canh giữa tiêu đề và đoạn chào */
+.login-header {
+    text-align: center; 
+    margin-bottom: 35px;
+}
+
+.login-header h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a202c;
+    text-transform: uppercase; /* Làm tiêu đề mạnh mẽ hơn */
+}
+
+.login-header p {
+    color: #718096;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Form Group & Inputs */
+.user-form-group { 
+    margin-bottom: 20px; 
+    text-align: left; /* Đảm bảo label vẫn ở bên trái */
+}
+
+.user-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%); 
+    color: #ff7a2d;
+    font-size: 18px;
+    z-index: 1;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    border: 1.5px solid #edf2f7;
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-size: 15px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.input-wrapper input:focus {
+    border-color: #ff7a2d;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 122, 45, 0.1);
+}
+
+/* Button */
+.btn-user-login {
+    width: 100%;
+    padding: 16px;
+    background: #ff7a2d;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-user-login:hover {
+    background: #e65c00;
+    transform: translateY(-1px);
+}
+
+.form-helper {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin: 15px 0 25px;
+}
+
+.form-helper a {
+    color: #ff7a2d;
+    text-decoration: none;
+    text-align: right;
+    font-weight: 600;
+}
+
+.auth-redirect {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.auth-redirect a {
+    color: #ff7a2d;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.back-to-home {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-to-home a {
+    color: #a0aec0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Thông báo lỗi */
+.error-msg {
+    color: #c53030;
+    background: #fff5f5;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border: 1px solid #feb2b2;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    .login-visual { display: none; }
+    .login-wrapper { max-width: 450px; }
 }
 
 /* --- HEADER HIỆN ĐẠI --- */
@@ -97,20 +336,59 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
-.cart-icon a {
-    font-size: 20px;
-    position: relative;
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-#cart-count {
-    background: var(--primary);
-    color: white;
-    font-size: 11px;
-    padding: 2px 6px;
-    border-radius: 50%;
+.action-item {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.action-item i {
+    font-size: 18px;
+    color: #ff7a2d; /* Màu cam đồng bộ logo */
+}
+
+.icon-box {
+    position: relative;
+    display: flex;
+}
+
+.badge {
     position: absolute;
-    top: -10px;
+    top: -8px;
     right: -10px;
+    background: #ff7a2d;
+    color: white;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+}
+
+.divider {
+    width: 1px;
+    height: 20px;
+    background: #ddd;
+}
+
+.user-info-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logout-btn i {
+    color: #999 !important;
+    font-size: 16px;
 }
 
 /* --- FOOTER CHUYÊN NGHIỆP --- */
@@ -205,7 +483,7 @@ footer {
 }
 
 /* =========================================
-   HOME PAGE STYLING
+   HOME PAGE STYLES
    ========================================= */
 /* --- SECTION TITLE STYLE --- */
 .section-header {
@@ -334,7 +612,7 @@ footer {
     box-shadow: 0 4px 8px rgba(211, 84, 0, 0.3);
 }
 
-/* --- DETAIL PAGE STYLING --- */
+/* --- DETAIL PAGE STYLES --- */
 .detail-container {
     display: flex;
     gap: 50px;

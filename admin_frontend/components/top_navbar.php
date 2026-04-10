@@ -5,7 +5,7 @@
     <div class="user-actions">
         <a href="/Project-Kayfood/admin_frontend/pages/logout.php" class="btn-logout">
             <i class='bx bx-log-out'></i>
-            <span>Đăng xuất</span>
+            <span>Log out</span>
         </a>
     </div>
 </header>

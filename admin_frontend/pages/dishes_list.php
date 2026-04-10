@@ -67,36 +67,36 @@ $dishes = $stmt->fetchAll();
         </div>
         
         <form action="../modules/dish_process.php" method="POST" enctype="multipart/form-data" class="modern-form">
-            <input type="hidden" name="dish_id" id="m_dish_id">
-            <input type="hidden" name="action_type" id="m_action_type" value="add">
+        <input type="hidden" name="dish_id" id="m_dish_id">
+        <input type="hidden" name="action_type" id="m_action_type" value="add">
 
-            <div class="form-group">
-                <label>Tên món ăn</label>
-                <input type="text" name="name" id="m_name" placeholder="Ví dụ: Phở bò đặc biệt" required>
-            </div>
+        <div class="form-group">
+            <label>Tên món ăn</label>
+            <input type="text" name="name" id="m_name" placeholder="Ví dụ: Phở bò đặc biệt" required>
+        </div>
 
-            <div class="form-group">
-                <label>Mô tả chi tiết</label>
-                <textarea name="description" id="m_description" rows="3" placeholder="Nhập mô tả món ăn (hương vị, nguyên liệu...)" style="width: 100%; padding: 12px; border: 1.5px solid #eee; border-radius: 8px; box-sizing: border-box;"></textarea>
-            </div>
+        <div class="form-group">
+            <label>Mô tả chi tiết</label>
+            <textarea name="description" id="m_description" rows="3" placeholder="Nhập mô tả món ăn (hương vị, nguyên liệu...)" style="width: 100%; padding: 12px; border: 1.5px solid #eee; border-radius: 8px; box-sizing: border-box;"></textarea>
+        </div>
 
-            <div class="form-group">
-                <label>Giá bán (VNĐ)</label>
-                <input type="number" name="price" id="m_price" placeholder="Nhập giá tiền..." required>
-            </div>
+        <div class="form-group">
+            <label>Giá bán (VNĐ)</label>
+            <input type="number" name="price" id="m_price" placeholder="Nhập giá tiền..." required>
+        </div>
 
-            <div class="form-group">
-                <label>Hình ảnh sản phẩm</label>
-                <div class="custom-file-upload">
-                    <input type="file" name="image" id="m_image">
-                    <p class="file-hint">Định dạng JPG, PNG. Tỉ lệ vuông là tốt nhất.</p>
-                </div>
+        <div class="form-group">
+            <label>Hình ảnh sản phẩm</label>
+            <div class="custom-file-upload">
+                <input type="file" name="image" id="m_image">
+                <p class="file-hint">Định dạng JPG, PNG. Tỉ lệ vuông là tốt nhất.</p>
             </div>
+        </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn-secondary" onclick="closeModal()">Hủy</button>
-                <button type="submit" name="submit_dish" class="btn-primary">Xác nhận lưu</button>
-            </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-secondary" onclick="closeModal()">Hủy</button>
+            <button type="submit" name="submit_dish" class="btn-primary">Xác nhận lưu</button>
+        </div>
         </form>
     </div>
 </div>

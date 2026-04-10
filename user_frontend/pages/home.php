@@ -7,7 +7,7 @@ $stmt = $pdo->query("SELECT * FROM dishes");
 $dishes = $stmt->fetchAll();
 
 // 3. Khai báo biến CSS riêng để file header.php nhận diện
-$css_file = 'user_frontend/assets/css/index.css';
+$css_file = '../assets/css/index.css';
 
 // 4. Gọi Header dùng chung
 include_once '../components/header.php'; 
@@ -15,13 +15,13 @@ include_once '../components/header.php';
 
 <section class="hero-banner">
     <div class="banner-image">
-        <img src="/Project-Kayfood/assets/images/banner.png" alt="Món Ăn Truyền Thống">
+        <img src="../assets/images/banner.png" alt="Traditional Vietnamese Dishes">
     </div>
 </section>
 
 <main class="container">
     <div class="section-header">
-        <h2 class="section-title">Món Ăn Truyền Thống</h2>
+        <h2 class="section-title">Traditional Vietnamese Dishes</h2>
         <div class="title-underline"></div> 
     </div>
 
@@ -30,11 +30,10 @@ include_once '../components/header.php';
             <?php foreach ($dishes as $dish): ?>
             <article class="food-item">
                 <div class="image-wrapper">
-                    <img src="/Project-Kayfood/assets/images/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>">
+                    <img src="../assets/images/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>">
                 </div>
                 <div class="info">
                     <h3><?php echo $dish['name']; ?></h3>
-                    <!-- <p class="description"><?php echo $dish['description']; ?></p> -->
                     <span class="price"><?php echo number_format($dish['price'], 0, ',', '.'); ?>đ</span>
                     <div class="actions">
                         <a href="detail.php?id=<?php echo $dish['id']; ?>" class="btn-detail">Chi tiết</a>

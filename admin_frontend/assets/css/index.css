@@ -83,6 +83,40 @@ body.login-page {
     box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.1);
 }
 
+/* Container bao quanh icon và input */
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Style cho icon nằm bên trong ô */
+.input-wrapper i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%); 
+    color: #ff7a2d;
+    font-size: 18px;
+    z-index: 1;
+}
+
+/* Style cho ô input */
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 15px 12px 42px; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng khi click vào ô */
+.input-wrapper input:focus {
+    border-color: #ff7a2d;
+    box-shadow: 0 0 5px rgba(255, 122, 45, 0.2);
+}
+
 .btn-login {
     width: 100%;
     padding: 14px;
@@ -412,7 +446,7 @@ body.admin-page {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.modal-header {
+.modal-content .modal-header {
     padding: 20px 25px;
     background: #fafafa;
     border-bottom: 1px solid #eee;
@@ -421,16 +455,16 @@ body.admin-page {
     align-items: center;
 }
 
-.modal-header h3 { margin: 0; font-size: 18px; color: #332111; }
+.modal-content .modal-header h3 { margin: 0; font-size: 18px; color: #332111; }
 
-.close-modal { font-size: 24px; cursor: pointer; color: #999; }
+.modal-content .close-modal { font-size: 24px; cursor: pointer; color: #999; }
 
 /* Modern Form */
-.modern-form { padding: 25px; }
+.modal-content .modern-form { padding: 25px; }
 
-.form-group { margin-bottom: 20px; }
+.modal-content .form-group { margin-bottom: 20px; }
 
-.form-group label {
+.modal-content .form-group label {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
@@ -438,7 +472,7 @@ body.admin-page {
     font-size: 14px;
 }
 
-.form-group input {
+.modal-content .form-group input {
     width: 100%;
     padding: 12px;
     border: 1.5px solid #eee;
@@ -447,13 +481,13 @@ body.admin-page {
     transition: 0.3s;
 }
 
-.form-group input:focus {
+.modal-content .form-group input:focus {
     outline: none;
     border-color: #e67e22;
     box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
 }
 
-.file-hint { font-size: 12px; color: #999; margin-top: 5px; }
+.modal-content .file-hint { font-size: 12px; color: #999; margin-top: 5px; }
 
 /* Loại bỏ mũi tên cho Chrome, Safari, Edge, Opera */
 input#m_price::-webkit-outer-spin-button,
