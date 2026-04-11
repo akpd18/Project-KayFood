@@ -2,13 +2,33 @@
 session_start();
 require_once __DIR__ . '/../../core/db.php'; 
 
-// Xử lý Xóa
-if (isset($_GET['delete_id'])) {
-    $pdo->prepare("DELETE FROM dishes WHERE id = ?")->execute([(int)$_GET['delete_id']]);
-    header("Location: ../pages/dishes_list.php"); exit();
+// 1. XỬ LÝ HIỂN THỊ TRANG CHỦ 
+if (isset($_GET['toggle_featured'])) {
+    $id = (int)$_GET['toggle_featured'];
+    
+    $sql = "UPDATE dishes SET is_featured = 1 - is_featured WHERE id = ?";
+    $stmt = $pdo->prepare($sql);
+    $success = $stmt->execute([$id]);
+
+    // Nếu là yêu cầu thông thường (không phải AJAX) thì mới redirect
+    if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
+        // Chỉ trả về trạng thái HTTP 200 thay vì chuyển trang
+        http_response_code(200);
+        exit();
+    }
+    
+    header("Location: ../pages/dishes_list.php"); 
+    exit();
 }
 
-// Xử lý Thêm/Sửa
+// 2. Xử lý Xóa
+if (isset($_GET['delete_id'])) {
+    $pdo->prepare("DELETE FROM dishes WHERE id = ?")->execute([(int)$_GET['delete_id']]);
+    header("Location: ../pages/dishes_list.php"); 
+    exit();
+}
+
+// 3. Xử lý Thêm/Sửa
 if (isset($_POST['submit_dish'])) {
     $action = $_POST['action_type'];
     $name = $_POST['name'];
@@ -22,7 +42,7 @@ if (isset($_POST['submit_dish'])) {
     }
 
     if ($action == 'add') {
-        $sql = "INSERT INTO dishes (name, price, image) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO dishes (name, price, image, is_featured) VALUES (?, ?, ?, 0)";
         $pdo->prepare($sql)->execute([$name, $price, $img]);
     } else {
         if ($img) {
@@ -33,5 +53,6 @@ if (isset($_POST['submit_dish'])) {
             $pdo->prepare($sql)->execute([$name, $price, $id]);
         }
     }
-    header("Location: ../pages/dishes_list.php"); exit();
+    header("Location: ../pages/dishes_list.php"); 
+    exit();
 }

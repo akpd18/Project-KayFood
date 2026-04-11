@@ -2,9 +2,8 @@
 // 1. Kết nối Database
 require_once '../../core/db.php';
 
-// 2. Lấy dữ liệu món ăn - CHỈ LẤY CÁC MÓN ĐƯỢC ĐÁNH DẤU SAO
-// Thêm điều kiện WHERE is_featured = 1 để lọc các món nổi bật
-$stmt = $pdo->query("SELECT * FROM dishes WHERE is_featured = 1");
+// 2. Lấy dữ liệu món ăn
+$stmt = $pdo->query("SELECT * FROM dishes");
 $dishes = $stmt->fetchAll();
 
 // 3. Khai báo biến CSS riêng để file header.php nhận diện
@@ -22,7 +21,7 @@ include_once '../components/header.php';
 
 <main class="container">
     <div class="section-header">
-        <h2 class="section-title">BEST-SELLING DISHES</h2>
+        <h2 class="section-title">Traditional Vietnamese Dishes</h2>
         <div class="title-underline"></div> 
     </div>
 
@@ -36,11 +35,15 @@ include_once '../components/header.php';
                 <div class="info">
                     <h3><?php echo $dish['name']; ?></h3>
                     <span class="price"><?php echo number_format($dish['price'], 0, ',', '.'); ?>đ</span>
+                    <div class="actions">
+                        <a href="detail.php?id=<?php echo $dish['id']; ?>" class="btn-detail">Chi tiết</a>
+                        <button class="btn-buy">Thêm vào giỏ</button>
+                    </div>
                 </div>
             </article>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>Hiện chưa có món ăn nổi bật nào được chọn.</p>
+            <p>Hiện chưa có món ăn nào trong thực đơn.</p>
         <?php endif; ?>
     </div>
 </main>

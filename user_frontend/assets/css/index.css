@@ -593,7 +593,7 @@ footer {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* Nút thêm giỏ hàng*/
+/* Nút thêm giỏ hàng */
 .btn-buy {
     flex: 1; /* Nút mua to hơn một chút để thu hút người dùng */
     background-color: #d35400; /* Màu cam đậm giống hình bạn gửi */
@@ -610,7 +610,7 @@ footer {
     background-color: #e67e22;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(211, 84, 0, 0.3);
-}
+} 
 
 /* --- DETAIL PAGE STYLES --- */
 .detail-container {

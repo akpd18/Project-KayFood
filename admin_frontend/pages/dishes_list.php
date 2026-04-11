@@ -6,7 +6,7 @@ $stmt = $pdo->query("SELECT * FROM dishes ORDER BY id DESC");
 $dishes = $stmt->fetchAll();
 ?>
 
-<link rel="stylesheet" href="../assets/css/dishes.css">
+<link rel="stylesheet" href="../assets/css/index.css?v=<?php echo time(); ?>">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <style>
     html, body {
@@ -44,13 +44,25 @@ $dishes = $stmt->fetchAll();
                     <td><span class="dish-name-label"><?php echo htmlspecialchars($dish['name']); ?></span></td>
                     <td><div class="dish-description"><?php echo htmlspecialchars($dish['description']); ?></div></td>
                     <td class="dish-price"><?php echo number_format($dish['price'], 0, ',', '.'); ?>đ</td>
-                    <td class="text-center">
-                        <button class="action-btn edit-btn" onclick="openDishModal('edit', <?php echo htmlspecialchars(json_encode($dish)); ?>)">
-                            <i class='bx bx-edit-alt'></i>
-                        </button>
-                        <a href="../modules/dish_process.php?delete_id=<?php echo $dish['id']; ?>" class="action-btn delete-btn" onclick="return confirm('Xác nhận xóa?')">
-                            <i class='bx bx-trash'></i>
-                        </a>
+                    <td class="col-action text-center">
+                        <div class="action-group">
+                            <button class="action-btn edit-btn" onclick="openDishModal('edit', <?php echo htmlspecialchars(json_encode($dish)); ?>)">
+                                <i class='bx bx-edit-alt'></i>
+                            </button>
+
+                            <a href="javascript:void(0);" 
+                                class="star-btn <?php echo ($dish['is_featured'] == 1) ? 'active' : ''; ?>" 
+                                onclick="toggleFeatured(this, <?php echo $dish['id']; ?>)"
+                                title="Hiển thị lên trang chủ">
+                                <i class='bx <?php echo ($dish['is_featured'] == 1) ? 'bxs-star' : 'bx-star'; ?>'></i>
+                            </a>
+
+                            <a href="../modules/dish_process.php?delete_id=<?php echo $dish['id']; ?>" 
+                            class="delete-btn" 
+                            onclick="return confirm('Xác nhận xóa?')">
+                                <i class='bx bx-trash'></i>
+                            </a>
+                        </div>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -102,6 +114,27 @@ $dishes = $stmt->fetchAll();
 </div>
 
 <script>
+function toggleFeatured(element, dishId) {
+    // Gửi yêu cầu ngầm đến server
+    fetch(`../modules/dish_process.php?toggle_featured=${dishId}`)
+        .then(response => {
+            if (response.ok) {
+                // Tìm icon bên trong nút vừa nhấn
+                const icon = element.querySelector('i');
+                
+                // Thay đổi class để đổi màu và hình dáng ngôi sao
+                if (element.classList.contains('active')) {
+                    element.classList.remove('active');
+                    icon.classList.replace('bxs-star', 'bx-star');
+                } else {
+                    element.classList.add('active');
+                    icon.classList.replace('bx-star', 'bxs-star');
+                }
+            }
+        })
+        .catch(error => console.error('Lỗi:', error));
+}
+
 function openDishModal(mode, data = null) {
     document.getElementById('m_action_type').value = mode;
     if(mode === 'edit') {
