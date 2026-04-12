@@ -2,8 +2,22 @@
 // 1. Kết nối Database
 require_once '../../core/db.php';
 
-// 2. Lấy dữ liệu món ăn
-$stmt = $pdo->query("SELECT * FROM dishes");
+// 2. Xử lý bộ lọc và lấy dữ liệu món ăn
+$category = isset($_GET['category']) ? $_GET['category'] : '';
+$query = "SELECT * FROM dishes WHERE 1=1";
+$params = [];
+
+// Điều kiện lọc
+if (!empty($category)) {
+    $query .= " AND category = ?";
+    $params[] = $category;
+}
+
+// Sắp xếp để món mới nhất hiện lên đầu
+$query .= " ORDER BY id DESC";
+
+$stmt = $pdo->prepare($query);
+$stmt->execute($params);
 $dishes = $stmt->fetchAll();
 
 // 3. Khai báo biến CSS riêng để file header.php nhận diện
@@ -13,16 +27,22 @@ $css_file = '../assets/css/index.css';
 include_once '../components/header.php'; 
 ?>
 
-<section class="hero-banner">
-    <div class="banner-image">
-        <img src="../assets/images/banner.png" alt="Traditional Vietnamese Dishes">
-    </div>
-</section>
-
 <main class="container">
     <div class="section-header">
         <h2 class="section-title">Traditional Vietnamese Dishes</h2>
         <div class="title-underline"></div> 
+    </div>
+
+    <div class="filter-wrapper">
+        <a href="food.php" class="filter-item <?php echo $category == '' ? 'active' : ''; ?>">
+            <i class='bx bx-restaurant'></i> Tất cả
+        </a>
+        <a href="food.php?category=nuoc" class="filter-item <?php echo $category == 'nuoc' ? 'active' : ''; ?>">
+            <i class='bx bx-bowl-hot'></i> Món nước
+        </a>
+        <a href="food.php?category=kho" class="filter-item <?php echo $category == 'kho' ? 'active' : ''; ?>">
+            <i class='bx bx-dish'></i> Món khô
+        </a>
     </div>
 
     <div class="grid-food">
@@ -30,7 +50,9 @@ include_once '../components/header.php';
             <?php foreach ($dishes as $dish): ?>
             <article class="food-item">
                 <div class="image-wrapper">
-                    <img src="../assets/images/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>">
+                    <img src="../assets/images/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>" 
+                         ondblclick="window.location.href='detail.php?id=<?php echo $dish['id']; ?>'"
+                         style="cursor: pointer;">
                 </div>
                 <div class="info">
                     <h3><?php echo $dish['name']; ?></h3>
@@ -43,7 +65,7 @@ include_once '../components/header.php';
             </article>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>Hiện chưa có món ăn nào trong thực đơn.</p>
+            <p class="no-result">Hiện chưa có món ăn nào trong danh mục này.</p>
         <?php endif; ?>
     </div>
 </main>

@@ -30,8 +30,12 @@ include_once '../components/header.php';
         <?php if (count($dishes) > 0): ?>
             <?php foreach ($dishes as $dish): ?>
             <article class="food-item">
-                <div class="image-wrapper">
-                    <img src="../assets/images/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>">
+               <div class="image-wrapper">
+                    <img src="../assets/images/<?php echo $dish['image']; ?>" 
+                        alt="<?php echo $dish['name']; ?>"
+                        ondblclick="window.location.href='detail.php?id=<?php echo $dish['id']; ?>'"
+                        style="cursor: pointer;"
+                        title="Nhấn đúp để xem chi tiết">
                 </div>
                 <div class="info">
                     <h3><?php echo $dish['name']; ?></h3>

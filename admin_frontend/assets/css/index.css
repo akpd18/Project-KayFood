@@ -388,9 +388,9 @@ td.text-center {
 /* --- Column Widths --- */
 .col-id { width: 50px; text-align: center !important; }
 .col-img { width: 120px; text-align: center !important; }
-.col-name { width: 150px; }
+.col-name { width: 150px; text-align: center !important; }
 .col-desc { width: auto; text-align: center !important; } 
-.col-price { width: 120px; text-align: left !important; }
+.col-price { width: 120px; text-align: center !important; }
 .col-action { 
     width: 150px; 
     text-align: center !important; 
@@ -398,6 +398,39 @@ td.text-center {
 }
 
 /* --- Content Styling --- */
+/* Mã số ID món ăn */
+.dish-id {
+    font-weight: bold;
+    color: #888;
+    text-align: center;
+}
+
+/* Hình ảnh món ăn thu nhỏ */
+.dish-image {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.dish-image:hover {
+    transform: scale(1.05);
+}
+
+/* Tên món ăn */
+.dish-name-label {
+    font-weight: 700;
+    color: #333;
+    font-size: 16px;
+    display: block;
+    margin-right: 10px;
+    text-align: center;
+}
+
 .dish-description {
     display: block;
     max-width: 480px;
@@ -411,6 +444,7 @@ td.text-center {
     color: #e67e22; 
     font-weight: bold; 
     font-size: 16px; 
+    text-align: center;
 }
 
 /* --- Action Group & Buttons --- */

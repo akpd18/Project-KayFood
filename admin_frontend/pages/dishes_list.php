@@ -18,9 +18,9 @@ $dishes = $stmt->fetchAll();
 
 <div class="kayfood-admin-wrapper">
     <div class="table-header-section">
-        <h3>Danh sách món ăn</h3>
+        <h3>Dishes List</h3>
         <button class="btn-add-new" onclick="openDishModal('add')">
-            <i class='bx bx-plus'></i> Thêm món mới
+            <i class='bx bx-plus'></i> Add new dish
         </button>
     </div>
 
@@ -29,18 +29,18 @@ $dishes = $stmt->fetchAll();
             <thead>
                 <tr>
                     <th class="col-id">ID</th>
-                    <th class="col-img">ẢNH</th>
-                    <th class="col-name">TÊN MÓN</th>
-                    <th class="col-desc">MÔ TẢ</th> 
-                    <th class="col-price">GIÁ</th>
-                    <th class="col-action">THAO TÁC</th>
+                    <th class="col-img">IMAGE</th>
+                    <th class="col-name">NAME DISH</th>
+                    <th class="col-desc">DESCRIPTION</th> 
+                    <th class="col-price">PRICE</th>
+                    <th class="col-action">ACTION</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($dishes as $dish): ?>
                 <tr>
-                    <td class="text-center-bold"><?php echo $dish['id']; ?></td>
-                    <td><img src="../assets/images/dishes/<?php echo $dish['image']; ?>" class="dish-thumb"></td>
+                    <td class="dish-id"><?php echo $dish['id']; ?></td>
+                    <td><img src="../assets/images/dishes/<?php echo $dish['image']; ?>" class="dish-image"></td>
                     <td><span class="dish-name-label"><?php echo htmlspecialchars($dish['name']); ?></span></td>
                     <td><div class="dish-description"><?php echo htmlspecialchars($dish['description']); ?></div></td>
                     <td class="dish-price"><?php echo number_format($dish['price'], 0, ',', '.'); ?>đ</td>
@@ -59,7 +59,7 @@ $dishes = $stmt->fetchAll();
 
                             <a href="../modules/dish_process.php?delete_id=<?php echo $dish['id']; ?>" 
                             class="delete-btn" 
-                            onclick="return confirm('Xác nhận xóa?')">
+                            onclick="return confirm('Confirm deletion of this dish?');">
                                 <i class='bx bx-trash'></i>
                             </a>
                         </div>
@@ -74,7 +74,7 @@ $dishes = $stmt->fetchAll();
 <div id="dishModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <h3 id="modalTitle">Thêm món ăn mới</h3>
+            <h3 id="modalTitle">Add New Dish</h3>
             <span class="close-modal" onclick="closeModal()">&times;</span>
         </div>
         
@@ -83,31 +83,31 @@ $dishes = $stmt->fetchAll();
         <input type="hidden" name="action_type" id="m_action_type" value="add">
 
         <div class="form-group">
-            <label>Tên món ăn</label>
-            <input type="text" name="name" id="m_name" placeholder="Ví dụ: Phở bò đặc biệt" required>
+            <label>Dish Name</label>
+            <input type="text" name="name" id="m_name" placeholder="e.g., Phở Bò" required>
         </div>
 
         <div class="form-group">
-            <label>Mô tả chi tiết</label>
-            <textarea name="description" id="m_description" rows="3" placeholder="Nhập mô tả món ăn (hương vị, nguyên liệu...)" style="width: 100%; padding: 12px; border: 1.5px solid #eee; border-radius: 8px; box-sizing: border-box;"></textarea>
+            <label>Detail Description</label>
+            <textarea name="description" id="m_description" rows="3" placeholder="Enter dish description (flavor, ingredients...)" style="width: 100%; padding: 12px; border: 1.5px solid #eee; border-radius: 8px; box-sizing: border-box;"></textarea>
         </div>
 
         <div class="form-group">
-            <label>Giá bán (VNĐ)</label>
-            <input type="number" name="price" id="m_price" placeholder="Nhập giá tiền..." required>
+            <label>Price (VND)</label>
+            <input type="number" name="price" id="m_price" placeholder="Enter price..." required>
         </div>
 
         <div class="form-group">
-            <label>Hình ảnh sản phẩm</label>
+            <label>Dish images</label>
             <div class="custom-file-upload">
                 <input type="file" name="image" id="m_image">
-                <p class="file-hint">Định dạng JPG, PNG. Tỉ lệ vuông là tốt nhất.</p>
+                <p class="file-hint">JPG or PNG format. A square aspect ratio is best..</p>
             </div>
         </div>
 
         <div class="modal-footer">
-            <button type="button" class="btn-secondary" onclick="closeModal()">Hủy</button>
-            <button type="submit" name="submit_dish" class="btn-primary">Xác nhận lưu</button>
+            <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+            <button type="submit" name="submit_dish" class="btn-primary">Save</button>
         </div>
         </form>
     </div>
@@ -138,7 +138,7 @@ function toggleFeatured(element, dishId) {
 function openDishModal(mode, data = null) {
     document.getElementById('m_action_type').value = mode;
     if(mode === 'edit') {
-        document.getElementById('modalTitle').innerText = "Cập nhật món ăn";
+        document.getElementById('modalTitle').innerText = "Update Dish";
         document.getElementById('m_dish_id').value = data.id;
         document.getElementById('m_name').value = data.name;
         document.getElementById('m_price').value = data.price;
@@ -146,7 +146,7 @@ function openDishModal(mode, data = null) {
         document.getElementById('m_description').value = data.description || "";
         document.getElementById('m_image').required = false;
     } else {
-        document.getElementById('modalTitle').innerText = "Thêm món ăn mới";
+        document.getElementById('modalTitle').innerText = "Add New Dish";
         document.getElementById('m_name').value = "";
         document.getElementById('m_price').value = "";
         // Reset trường mô tả khi thêm mới

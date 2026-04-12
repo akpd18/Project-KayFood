@@ -17,7 +17,8 @@
             <nav>
                 <ul>
                     <li><a href="home.php">Home</a></li>
-                    <li><a href="menu.php">Menu</a></li>
+                    <li><a href="food.php">Food</a></li>
+                    <li><a href="#">Drink</a></li>
                     <li><a href="#">Promotions</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>

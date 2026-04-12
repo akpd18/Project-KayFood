@@ -511,8 +511,53 @@ footer {
     border-radius: 10px;     
 }
 
-.grid-food {
-    padding: 20px 0 60px 0; 
+/* Filter Styles */
+.filter-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0 20px;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: #555;
+    background: #fff;
+    border: 2px solid #eee;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.filter-item i {
+    font-size: 20px;
+}
+
+.filter-item:hover {
+    border-color: #f39c12;
+    color: #f39c12;
+    transform: translateY(-3px);
+}
+
+.filter-item.active {
+    background: #f39c12;
+    border-color: #f39c12;
+    color: #fff;
+    box-shadow: 0 6px 15px rgba(243, 156, 18, 0.3);
+}
+
+/* No Result Text */
+.no-result {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px;
+    color: #888;
+    font-style: italic;
 }
 
 /* Danh sách món ăn dạng lưới */
@@ -520,7 +565,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
-    padding: 40px 0;
+    padding: 15px 0 60px 0; 
 }
 
 /* Thẻ món ăn */
