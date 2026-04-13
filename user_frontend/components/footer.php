@@ -2,7 +2,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>About KayFood</h3>
+                    <h3>About KayYum</h3>
                     <p>We bring you traditional Vietnamese dishes with a rich flavor and the freshest ingredients every day.</p>
                 </div>
                 <div class="footer-section">
@@ -10,7 +10,7 @@
                     <ul>
                         <li>📍 69/68 Đặng Thùy Trâm, An Nhơn, TP.HCM</li>
                         <li>📞 Hotline: 1900 1234</li>
-                        <li>✉️ Email: info@kayfood.vn</li>
+                        <li>✉️ Email: info@kayyum.vn</li>
                     </ul>
                 </div>
                 <div class="footer-section">

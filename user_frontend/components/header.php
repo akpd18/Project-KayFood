@@ -6,19 +6,20 @@
     <title>KayFood - Traditional Vietnamese Dishes</title>
     <link rel="stylesheet" href="../assets/css/index.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
-                <a href="home.php">KAY<span>FOOD</span></a>
+                <a href="home.php">KAY<span>YUM</span></a>
             </div>
             
             <nav>
                 <ul>
                     <li><a href="home.php">Home</a></li>
                     <li><a href="food.php">Food</a></li>
-                    <li><a href="#">Drink</a></li>
+                    <li><a href="drink.php">Drink</a></li>
                     <li><a href="#">Promotions</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>

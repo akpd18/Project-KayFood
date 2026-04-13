@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập - KayFood</title>
+    <title>Đăng nhập - KayYum</title>
     <link rel="stylesheet" href="../assets/css/index.css?v=<?php echo time(); ?>">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -17,17 +17,17 @@ session_start();
             <!-- Nửa bên trái: Hình ảnh -->
             <div class="login-visual">
                 <div class="overlay-text">
-                    <h2>KAY<span>FOOD</span></h2>
+                    <h2>KAY<span>YUM</span></h2>
                     <p>Traditional flavors, modern experience</p>
                 </div>
-                <img src="../assets/images/login1.jpg" alt="KayFood Banner">
+                <img src="../assets/images/login1.jpg" alt="KayYum Banner">
             </div>
 
             <!-- Nửa bên phải: Form -->
             <div class="login-box">
                 <div class="login-header">
                     <h3>LOGIN</h3>
-                    <p>Welcome to KayFood</p>
+                    <p>Welcome to KayYum</p>
                 </div>
 
                 <form action="../modules/auth_user_process.php" method="POST" class="user-login-form">

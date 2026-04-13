@@ -35,13 +35,13 @@ include_once '../components/header.php';
 
     <div class="filter-wrapper">
         <a href="food.php" class="filter-item <?php echo $category == '' ? 'active' : ''; ?>">
-            <i class='bx bx-restaurant'></i> Tất cả
+            <i class='bx bx-restaurant'></i> All
         </a>
         <a href="food.php?category=nuoc" class="filter-item <?php echo $category == 'nuoc' ? 'active' : ''; ?>">
-            <i class='bx bx-bowl-hot'></i> Món nước
+            <i class='bx bx-bowl-hot'></i> Soup
         </a>
         <a href="food.php?category=kho" class="filter-item <?php echo $category == 'kho' ? 'active' : ''; ?>">
-            <i class='bx bx-dish'></i> Món khô
+            <i class='bx bx-dish'></i> Dry
         </a>
     </div>
 
@@ -50,7 +50,7 @@ include_once '../components/header.php';
             <?php foreach ($dishes as $dish): ?>
             <article class="food-item">
                 <div class="image-wrapper">
-                    <img src="../assets/images/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>" 
+                    <img src="../assets/images/dishes/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>" 
                          ondblclick="window.location.href='detail.php?id=<?php echo $dish['id']; ?>'"
                          style="cursor: pointer;">
                 </div>
@@ -58,14 +58,14 @@ include_once '../components/header.php';
                     <h3><?php echo $dish['name']; ?></h3>
                     <span class="price"><?php echo number_format($dish['price'], 0, ',', '.'); ?>đ</span>
                     <div class="actions">
-                        <a href="detail.php?id=<?php echo $dish['id']; ?>" class="btn-detail">Chi tiết</a>
-                        <button class="btn-buy">Thêm vào giỏ</button>
+                        <a href="detail.php?id=<?php echo $dish['id']; ?>" class="btn-detail">Detail</a>
+                        <button class="btn-buy">Add to Cart</button>
                     </div>
                 </div>
             </article>
             <?php endforeach; ?>
         <?php else: ?>
-            <p class="no-result">Hiện chưa có món ăn nào trong danh mục này.</p>
+            <p class="no-result">There are currently no dishes listed in this category.</p>
         <?php endif; ?>
     </div>
 </main>

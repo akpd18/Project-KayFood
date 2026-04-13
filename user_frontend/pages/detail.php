@@ -26,7 +26,7 @@ include_once '../components/header.php';
 <main class="container">
     <div class="detail-container">
         <div class="detail-image">
-            <img src="../assets/images/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>">
+            <img src="../assets/images/dish/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>">
         </div>
 
         <div class="detail-info">
