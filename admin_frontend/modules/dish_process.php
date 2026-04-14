@@ -53,6 +53,6 @@ if (isset($_POST['submit_dish'])) {
             $pdo->prepare($sql)->execute([$name, $price, $id]);
         }
     }
-    header("Location: ../pages/dishes_list.php"); 
+    header("Location: ../pages/admin.php?page=dishes");
     exit();
 }

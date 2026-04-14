@@ -493,7 +493,8 @@ footer {
 }
 
 .section-title {
-    font-size: 30px;      
+    font-size: 30px;   
+    align-items: center; 
     color: var(--dark);      
     text-transform: uppercase;
     font-weight: 700;
@@ -515,7 +516,7 @@ footer {
 .filter-wrapper {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     margin: 20px 0 20px;
 }
 
@@ -565,7 +566,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
-    padding: 15px 0 60px 0; 
+    padding: 30px 0 60px 0; 
 }
 
 /* Thẻ món ăn */

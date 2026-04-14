@@ -50,15 +50,16 @@ include_once '../components/header.php';
             <?php foreach ($dishes as $dish): ?>
             <article class="food-item">
                 <div class="image-wrapper">
-                    <img src="../assets/images/dishes/<?php echo $dish['image']; ?>" alt="<?php echo $dish['name']; ?>" 
-                         ondblclick="window.location.href='detail.php?id=<?php echo $dish['id']; ?>'"
+                    <img src="../../admin_frontend/assets/images/<?php echo $dish['image']; ?>?v=<?php echo time(); ?>" 
+                         alt="<?php echo htmlspecialchars($dish['name']); ?>" 
+                         ondblclick="window.location.href='detail.php?id=<?php echo $dish['id']; ?>&type=dish'"
                          style="cursor: pointer;">
                 </div>
                 <div class="info">
-                    <h3><?php echo $dish['name']; ?></h3>
+                    <h3><?php echo htmlspecialchars($dish['name']); ?></h3>
                     <span class="price"><?php echo number_format($dish['price'], 0, ',', '.'); ?>đ</span>
                     <div class="actions">
-                        <a href="detail.php?id=<?php echo $dish['id']; ?>" class="btn-detail">Detail</a>
+                        <a href="detail.php?id=<?php echo $dish['id']; ?>&type=dish" class="btn-detail">Detail</a>
                         <button class="btn-buy">Add to Cart</button>
                     </div>
                 </div>

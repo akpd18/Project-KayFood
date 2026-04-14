@@ -14,7 +14,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 <head>
     <meta charset="UTF-8">
     <title>Admin Panel - KayFood</title>
-    <link rel="stylesheet" href="/Project-Kayfood/admin_frontend/assets/css/index.css">
+    <link rel="stylesheet" href="/Project-Kayfood/admin_frontend/assets/css/index.css?v=<?php echo time(); ?>">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="admin-page">
@@ -32,8 +32,8 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                     case 'dishes':
                         include_once 'dishes_list.php';
                         break;
-                    case 'add-dish':
-                        include_once 'dishes/add.php';
+                    case 'drinks':
+                        include_once 'drinks_list.php';
                         break;
                     default:
                         include_once 'dashboard.php';

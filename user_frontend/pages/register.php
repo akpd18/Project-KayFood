@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Ký Tài Khoản - KayYum</title>
+    <title>Đăng Ký Tài Khoản - KayFood</title>
     <link rel="stylesheet" href="../assets/css/index.css?v=<?php echo time(); ?>">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -12,10 +12,10 @@
         <div class="login-wrapper">
             <div class="login-visual">
                 <div class="overlay-text">
-                    <h2>KAY<span>YUM</span></h2>
+                    <h2>KAY<span>FOOD</span></h2>
                     <p>Join the community of traditional food lovers.</p>
                 </div>
-                <img src="../assets/images/login1.jpg" alt="KayYum Register">
+                <img src="../assets/images/login1.jpg" alt="KayFood Register">
             </div>
 
             <div class="login-box">

@@ -12,7 +12,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <a href="home.php">KAY<span>YUM</span></a>
+                <a href="home.php">KAY<span>FOOD</span></a>
             </div>
             
             <nav>

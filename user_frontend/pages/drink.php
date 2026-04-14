@@ -51,7 +51,7 @@ include_once '../components/header.php';
             <?php foreach ($drinks as $drink): ?>
             <article class="drink-item">
                 <div class="image-wrapper">
-                    <img src="../assets/images/drinks/<?php echo $drink['image']; ?>" 
+                    <img src="../../admin_frontend/assets/images/<?php echo $drink['image']; ?>?v=<?php echo time(); ?>" 
                          alt="<?php echo htmlspecialchars($drink['name']); ?>" 
                          ondblclick="window.location.href='detail.php?id=<?php echo $drink['id']; ?>&type=drink'"
                          style="cursor: pointer;">

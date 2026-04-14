@@ -1,9 +1,9 @@
 <?php
 require_once __DIR__ . '/../../core/db.php';
 
-// Lấy toàn bộ món ăn, mới nhất lên đầu
-$stmt = $pdo->query("SELECT * FROM dishes ORDER BY id DESC");
-$dishes = $stmt->fetchAll();
+// Lấy toàn bộ đồ uống từ bảng drinks, mới nhất lên đầu
+$stmt = $pdo->query("SELECT * FROM drinks ORDER BY id DESC");
+$drinks = $stmt->fetchAll();
 ?>
 
 <link rel="stylesheet" href="../assets/css/index.css?v=<?php echo time(); ?>">
@@ -15,12 +15,11 @@ $dishes = $stmt->fetchAll();
     }
 </style>
 
-
 <div class="kayfood-admin-wrapper">
     <div class="table-header-section">
-        <h3>Dishes List</h3>
-        <button class="btn-add-new" onclick="openDishModal('add')">
-            <i class='bx bx-plus'></i> Add new dish
+        <h3>Drinks List</h3>
+        <button class="btn-add-new" onclick="openDrinkModal('add')">
+            <i class='bx bx-plus'></i> Add new drink
         </button>
     </div>
 
@@ -30,36 +29,36 @@ $dishes = $stmt->fetchAll();
                 <tr>
                     <th class="col-id">ID</th>
                     <th class="col-img">IMAGE</th>
-                    <th class="col-name">NAME DISH</th>
+                    <th class="col-name">NAME DRINK</th>
                     <th class="col-desc">DESCRIPTION</th> 
                     <th class="col-price">PRICE</th>
                     <th class="col-action">ACTION</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dishes as $dish): ?>
+                <?php foreach ($drinks as $drink): ?>
                 <tr>
-                    <td class="dish-id"><?php echo $dish['id']; ?></td>
-                    <td><img src="../assets/images/<?php echo $dish['image']; ?>?v=<?php echo time(); ?>" class="dish-image"></td>
-                    <td><span class="dish-name-label"><?php echo htmlspecialchars($dish['name']); ?></span></td>
-                    <td><div class="dish-description"><?php echo htmlspecialchars($dish['description']); ?></div></td>
-                    <td class="dish-price"><?php echo number_format($dish['price'], 0, ',', '.'); ?>đ</td>
+                    <td class="dish-id"><?php echo $drink['id']; ?></td>
+                    <td><img src="../assets/images/<?php echo $drink['image']; ?>?v=<?php echo time(); ?>" class="dish-image"></td>
+                    <td><span class="dish-name-label"><?php echo htmlspecialchars($drink['name']); ?></span></td>
+                    <td><div class="dish-description"><?php echo htmlspecialchars($drink['description']); ?></div></td>
+                    <td class="dish-price"><?php echo number_format($drink['price'], 0, ',', '.'); ?>đ</td>
                     <td class="col-action text-center">
                         <div class="action-group">
-                            <button class="action-btn edit-btn" onclick="openDishModal('edit', <?php echo htmlspecialchars(json_encode($dish)); ?>)">
+                            <button class="action-btn edit-btn" onclick="openDrinkModal('edit', <?php echo htmlspecialchars(json_encode($drink)); ?>)">
                                 <i class='bx bx-edit-alt'></i>
                             </button>
 
                             <a href="javascript:void(0);" 
-                                class="star-btn <?php echo ($dish['is_featured'] == 1) ? 'active' : ''; ?>" 
-                                onclick="toggleFeatured(this, <?php echo $dish['id']; ?>)"
+                                class="star-btn <?php echo ($drink['is_featured'] == 1) ? 'active' : ''; ?>" 
+                                onclick="toggleFeatured(this, <?php echo $drink['id']; ?>)"
                                 title="Hiển thị lên trang chủ">
-                                <i class='bx <?php echo ($dish['is_featured'] == 1) ? 'bxs-star' : 'bx-star'; ?>'></i>
+                                <i class='bx <?php echo ($drink['is_featured'] == 1) ? 'bxs-star' : 'bx-star'; ?>'></i>
                             </a>
 
-                            <a href="../modules/dish_process.php?delete_id=<?php echo $dish['id']; ?>" 
+                            <a href="../modules/drink_process.php?delete_id=<?php echo $drink['id']; ?>" 
                             class="delete-btn" 
-                            onclick="return confirm('Confirm deletion of this dish?');">
+                            onclick="return confirm('Confirm deletion of this drink?');">
                                 <i class='bx bx-trash'></i>
                             </a>
                         </div>
@@ -71,25 +70,25 @@ $dishes = $stmt->fetchAll();
     </div>
 </div>
 
-<div id="dishModal" class="modal">
+<div id="drinkModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <h3 id="modalTitle">Add New Dish</h3>
+            <h3 id="modalTitle">Add New Drink</h3>
             <span class="close-modal" onclick="closeModal()">&times;</span>
         </div>
         
-        <form action="../modules/dish_process.php" method="POST" enctype="multipart/form-data" class="modern-form">
-        <input type="hidden" name="dish_id" id="m_dish_id">
+        <form action="../modules/drink_process.php" method="POST" enctype="multipart/form-data" class="modern-form">
+        <input type="hidden" name="drink_id" id="m_drink_id">
         <input type="hidden" name="action_type" id="m_action_type" value="add">
 
         <div class="form-group">
-            <label>Dish Name</label>
-            <input type="text" name="name" id="m_name" placeholder="e.g., Phở Bò" required>
+            <label>Drink Name</label>
+            <input type="text" name="name" id="m_name" placeholder="e.g., Cà Phê Sữa Đá" required>
         </div>
 
         <div class="form-group">
             <label>Detail Description</label>
-            <textarea name="description" id="m_description" rows="3" placeholder="Enter dish description (flavor, ingredients...)" style="width: 100%; padding: 12px; border: 1.5px solid #eee; border-radius: 8px; box-sizing: border-box;"></textarea>
+            <textarea name="description" id="m_description" rows="3" placeholder="Enter drink description..." style="width: 100%; padding: 12px; border: 1.5px solid #eee; border-radius: 8px; box-sizing: border-box;"></textarea>
         </div>
 
         <div class="form-group">
@@ -98,7 +97,7 @@ $dishes = $stmt->fetchAll();
         </div>
 
         <div class="form-group">
-            <label>Dish images</label>
+            <label>Drink images</label>
             <div class="custom-file-upload">
                 <input type="file" name="image" id="m_image">
                 <p class="file-hint">JPG or PNG format. A square aspect ratio is best..</p>
@@ -107,22 +106,19 @@ $dishes = $stmt->fetchAll();
 
         <div class="modal-footer">
             <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
-            <button type="submit" name="submit_dish" class="btn-primary">Save</button>
+            <button type="submit" name="submit_drink" class="btn-primary">Save</button>
         </div>
         </form>
     </div>
 </div>
 
 <script>
-function toggleFeatured(element, dishId) {
-    // Gửi yêu cầu ngầm đến server
-    fetch(`../modules/dish_process.php?toggle_featured=${dishId}`)
+function toggleFeatured(element, drinkId) {
+    // Gửi yêu cầu đến file xử lý đồ uống
+    fetch(`../modules/drink_process.php?toggle_featured=${drinkId}`)
         .then(response => {
             if (response.ok) {
-                // Tìm icon bên trong nút vừa nhấn
                 const icon = element.querySelector('i');
-                
-                // Thay đổi class để đổi màu và hình dáng ngôi sao
                 if (element.classList.contains('active')) {
                     element.classList.remove('active');
                     icon.classList.replace('bxs-star', 'bx-star');
@@ -135,33 +131,30 @@ function toggleFeatured(element, dishId) {
         .catch(error => console.error('Lỗi:', error));
 }
 
-function openDishModal(mode, data = null) {
+function openDrinkModal(mode, data = null) {
     document.getElementById('m_action_type').value = mode;
     if(mode === 'edit') {
-        document.getElementById('modalTitle').innerText = "Update Dish";
-        document.getElementById('m_dish_id').value = data.id;
+        document.getElementById('modalTitle').innerText = "Update Drink";
+        document.getElementById('m_drink_id').value = data.id;
         document.getElementById('m_name').value = data.name;
         document.getElementById('m_price').value = data.price;
-        // Bổ sung dòng này để lấy dữ liệu mô tả
         document.getElementById('m_description').value = data.description || "";
         document.getElementById('m_image').required = false;
     } else {
-        document.getElementById('modalTitle').innerText = "Add New Dish";
+        document.getElementById('modalTitle').innerText = "Add New Drink";
         document.getElementById('m_name').value = "";
         document.getElementById('m_price').value = "";
-        // Reset trường mô tả khi thêm mới
         document.getElementById('m_description').value = "";
         document.getElementById('m_image').required = true;
     }
-    document.getElementById('dishModal').style.display = "flex";
+    document.getElementById('drinkModal').style.display = "flex";
 }
 
 function closeModal() { 
-    document.getElementById('dishModal').style.display = "none"; 
+    document.getElementById('drinkModal').style.display = "none"; 
 }
 
-// Đóng khi click ngoài vùng modal
 window.onclick = function(e) {
-    if (e.target == document.getElementById('dishModal')) closeModal();
+    if (e.target == document.getElementById('drinkModal')) closeModal();
 }
 </script>
