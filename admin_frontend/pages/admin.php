@@ -25,18 +25,29 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
     <div class="admin-content">
         <?php include_once '../components/top_navbar.php'; ?>
 
-        <div class="content-body">
+      <div class="content-body">
             <?php 
                 // Điều hướng nội dung trang con
                 switch($page) {
                     case 'dishes':
                         include_once 'dishes_list.php';
                         break;
+                    
                     case 'drinks':
                         include_once 'drinks_list.php';
                         break;
+
+                    case 'customers':
+                        include_once 'user_list.php';
+                        break;
+
+                    // case 'orders':
+                    //     include_once 'orders_list.php';
+                    //     break;
+
                     default:
                         include_once 'dashboard.php';
+                        break;
                 }
             ?>
         </div>

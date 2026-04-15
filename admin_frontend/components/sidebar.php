@@ -19,8 +19,8 @@
             <a href="#"><i class='bx bxs-cart-alt'></i> ORDER </a>
         </li>
 
-        <li>
-            <a href="#"><i class='bx bxs-user-detail'></i> CUSTOMER </a>
+        <li class="<?php echo $page == 'customers' ? 'active' : ''; ?>">
+            <a href="admin.php?page=customers"><i class='bx bxs-user-detail'></i> CUSTOMER </a>
         </li>
     </ul>
 </aside>

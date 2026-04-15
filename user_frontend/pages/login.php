@@ -20,7 +20,7 @@ session_start();
                     <h2>KAY<span>FOOD</span></h2>
                     <p>Traditional flavors, modern experience</p>
                 </div>
-                <img src="../assets/images/login1.jpg" alt="KayFood Banner">
+                <img src="../../admin_frontend/assets/images/login1.jpg" alt="KayFood Banner">
             </div>
 
             <!-- Nửa bên phải: Form -->

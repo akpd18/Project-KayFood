@@ -681,7 +681,7 @@ footer {
 }
 
 .btn-buy:hover {
-    background-color: #e67e22;
+    background-color: var(--primary);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(211, 84, 0, 0.3);
 } 
@@ -852,7 +852,7 @@ input[type=number] {
 }
 
 .btn-add-cart:hover {
-    background: #e67e22;
+    background: var(--primary);
     transform: translateY(-2px);
 }
 

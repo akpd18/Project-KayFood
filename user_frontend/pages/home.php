@@ -23,7 +23,7 @@ include_once '../components/header.php';
 
 <section class="hero-banner">
     <div class="banner-image">
-        <img src="../assets/images/banner.png" alt="Traditional Vietnamese Dishes">
+        <img src="../../admin_frontend/assets/images//banner.png" alt="Traditional Vietnamese Dishes">
     </div>
 </section>
 
