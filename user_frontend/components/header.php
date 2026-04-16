@@ -16,7 +16,7 @@
             </div>
             
             <nav>
-                <ul>
+                <ul class="nav-menu">
                     <li><a href="home.php">Home</a></li>
                     <li><a href="food.php">Food</a></li>
                     <li><a href="drink.php">Drink</a></li>

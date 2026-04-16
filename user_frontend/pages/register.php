@@ -15,7 +15,7 @@
                     <h2>KAY<span>FOOD</span></h2>
                     <p>Join the community of traditional food lovers.</p>
                 </div>
-                <img src="../assets/images/login1.jpg" alt="KayFood Register">
+                <img src="../../admin_frontend/assets/images/login1.jpg" alt="KayFood Register">
             </div>
 
             <div class="login-box">

@@ -42,7 +42,7 @@ include_once '../components/header.php';
                         alt="<?php echo htmlspecialchars($item['name']); ?>"
                         ondblclick="window.location.href='detail.php?id=<?php echo $item['id']; ?>&type=<?php echo $item['type']; ?>'"
                         style="cursor: pointer;"
-                        title="Nhấn đúp để xem chi tiết">
+                        title="Double-click to view details">
                 </div>
                 <div class="info">
                     <h3><?php echo htmlspecialchars($item['name']); ?></h3>
@@ -51,7 +51,7 @@ include_once '../components/header.php';
             </article>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>Hiện chưa có món ăn hoặc đồ uống nổi bật nào được chọn.</p>
+            <p>No standout food or drink has been selected yet.</p>
         <?php endif; ?>
     </div>
 </main>

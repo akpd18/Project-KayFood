@@ -15,7 +15,7 @@
                     <h2>KAY<span>FOOD</span></h2>
                     <p>Don't worry, we'll help you recover your password</p>
                 </div>
-                <img src="../assets/images/login1.jpg" alt="KayFood Forgot Password">
+                <img src="../../admin_frontend/assets/images/login1.jpg" alt="KayFood Forgot Password">
             </div>
 
             <div class="login-box">
